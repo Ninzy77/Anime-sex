@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anime Pictures Sex</title>
+<style>
+body {
+  margin: 0;
+  background: #100d1c;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+header {
+  padding: 25px;
+  text-align: center;
+  background: #211735;
+}
+h1 { color: #ff65b5; }
+input, button {
+  padding: 12px;
+  border: 0;
+  border-radius: 10px;
+  margin: 5px;
+}
+button {
+  background: #e94da9;
+  color: white;
+  cursor: pointer;
+}
+.gallery {
+  columns: 2 150px;
+  gap: 12px;
+  padding: 15px;
+}
+.photo {
+  background: #211735;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.photo img {
+  width: 100%;
+  display: block;
+}
+.caption { padding: 10px; }
+</style>
+</head>
+<body>
+<header>
+<h1>Anime Pictures Sex</h1>
+<p>My Personal Anime Gallery</p>
+<input id="search" placeholder="Search pictures...">
+</header>
+
+<main style="text-align:center;padding:15px">
+<h2>Welcome to my gallery ❤️</h2>
+<p>Adult fictional anime artwork gallery</p>
+</main>
+
+<div class="gallery" id="gallery"></div>
+
+<script>
+const gallery = document.getElementById("gallery");
+const search = document.getElementById("search");
+
+const pictures = [];
+
+function showPictures() {
+  gallery.innerHTML = "";
+  pictures.filter(p =>
+    p.name.toLowerCase().includes(search.value.toLowerCase())
+  ).forEach(p => {
+    const card = document.createElement("div");
+    card.className = "photo";
+
+    const img = document.createElement("img");
+    img.src = p.url;
+    img.alt = p.name;
+
+    const caption = document.createElement("div");
+    caption.className = "caption";
+    caption.textContent = p.name;
+
+    card.append(img, caption);
+    gallery.append(card);
+  });
+}
+
+search.addEventListener("input", showPictures);
+showPictures();
+</script>
+</body>
+</html>
